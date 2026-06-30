@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gedala Pavan — Software Developer &amp; Designer</title>
+  <meta name="description" content="Software Developer &amp; Designer from India. Building user-focused applications with modern web technologies, AI, and clean design." />
+  <meta property="og:title" content="Gedala Pavan — Software Developer &amp; Designer" />
+  <meta property="og:description" content="Software Developer &amp; Designer from India. Building user-focused web applications with modern technologies." />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inria+Sans:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ░░ NOISE OVERLAY ░░ -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- ░░ CUSTOM CURSOR ░░ -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- ░░ NAV ░░ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-name">Gedala Pavan</span>
+        <span class="logo-dot">.</span>
+      </a>
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="#work" class="nav-link" id="nav-work">My Works</a>
+        <a href="#experience" class="nav-link" id="nav-exp">Experience</a>
+        <a href="#certs" class="nav-link" id="nav-certs">Certs</a>
+        <a href="#about" class="nav-link" id="nav-about">About</a>
+        <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+      <a href="mailto:gedalapavan26@gmail.com" class="nav-cta" id="nav-cta-btn">Let's Talk →</a>
+    </div>
+  </header>
+
+  <!-- ░░ SCROLL PROGRESS ░░ -->
+  <div class="scroll-bar" id="scrollBar" aria-hidden="true">
+    <div class="scroll-fill" id="scrollFill"></div>
+  </div>
+
+  <!-- ░░ STICKY CAR ROAD ░░ -->
+  <div class="road-strip" id="roadStrip" aria-hidden="true">
+    <!-- Road surface -->
+    <div class="road-surface">
+      <div class="road-center-line" id="roadCenterLine"></div>
+      <div class="road-edge-left"></div>
+      <div class="road-edge-right"></div>
+    </div>
+    <!-- Parallax scenery -->
+    <div class="scenery" id="scenery">
+      <span class="scene-item si-1">🌵</span>
+      <span class="scene-item si-2">🏛️</span>
+      <span class="scene-item si-3">🌵</span>
+      <span class="scene-item si-4">🏗️</span>
+      <span class="scene-item si-5">🌴</span>
+      <span class="scene-item si-6">🏙️</span>
+      <span class="scene-item si-7">🌴</span>
+    </div>
+    <!-- Road sign -->
+    <div class="road-sign" id="roadSign" aria-live="polite">
+      <div class="sign-pole"></div>
+      <div class="sign-board" id="signBoard">
+        <span class="sign-text" id="signText">HERO</span>
+      </div>
+    </div>
+    <!-- THE CAR -->
+    <div class="car-container" id="carContainer">
+      <!-- Exhaust smoke -->
+      <div class="exhaust" id="exhaust">
+        <div class="puff p1"></div>
+        <div class="puff p2"></div>
+        <div class="puff p3"></div>
+      </div>
+      <!-- Speed lines -->
+      <div class="speed-lines" id="speedLines">
+        <div class="sline sl-a"></div>
+        <div class="sline sl-b"></div>
+        <div class="sline sl-c"></div>
+        <div class="sline sl-d"></div>
+        <div class="sline sl-e"></div>
+      </div>
+
+      <!-- SVG Car — detailed side view -->
+      <svg class="car-svg" id="carSvg" viewBox="0 0 260 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="cBodyGrad" x1="0" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#2a2a2a"/>
+            <stop offset="100%" stop-color="#111111"/>
+          </linearGradient>
+          <linearGradient id="cRoofGrad" x1="0" y1="0" x2="0" y2="50" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#1e1e1e"/>
+            <stop offset="100%" stop-color="#0d0d0d"/>
+          </linearGradient>
+          <linearGradient id="cGlass" x1="0" y1="0" x2="100" y2="50" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#89CFF0" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#800010" stop-opacity="0.08"/>
+          </linearGradient>
+          <radialGradient id="wheelGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#2e2e2e"/>
+            <stop offset="70%"  stop-color="#161616"/>
+            <stop offset="100%" stop-color="#080808"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Subtle ground shadow -->
+        <ellipse cx="130" cy="86" rx="75" ry="4" fill="#000000" opacity="0.35"/>
+
+        <!-- Main body lower -->
+        <path d="M22 68 L32 44 L62 30 L105 24 L155 24 L188 30 L218 44 L228 58 L230 72 Z"
+              fill="url(#cBodyGrad)" stroke="#3a3a3a" stroke-width="1"/>
+
+        <!-- Roof cabin -->
+        <path d="M65 44 L80 26 L148 24 L168 33 L180 44 Z"
+              fill="url(#cRoofGrad)" stroke="#3a3a3a" stroke-width="0.8"/>
+
+        <!-- Windshield -->
+        <path d="M83 43 L94 27 L145 25 L158 42 Z"
+              fill="url(#cGlass)" stroke="#89CFF0" stroke-width="0.6" opacity="0.9"/>
+
+        <!-- Rear quarter glass -->
+        <path d="M66 43 L78 27 L87 43 Z"
+              fill="url(#cGlass)" stroke="#89CFF0" stroke-width="0.5" opacity="0.6"/>
+
+        <!-- Hood -->
+        <path d="M158 42 L188 32 L216 46 L228 58 L228 72 L158 72 Z"
+              fill="#161616" stroke="#2a2a2a" stroke-width="0.8"/>
+
+        <!-- Trunk -->
+        <path d="M22 68 L30 46 L65 44 L62 72 Z"
+              fill="#131313" stroke="#2a2a2a" stroke-width="0.8"/>
+
+        <!-- Lower sill -->
+        <rect x="18" y="70" width="216" height="9" rx="3"
+              fill="#0d0d0d" stroke="#2a2a2a" stroke-width="1"/>
+
+        <!-- Door seams -->
+        <line x1="105" y1="72" x2="108" y2="38" stroke="#89CFF0" stroke-width="0.4" opacity="0.5"/>
+        <line x1="158" y1="72" x2="155" y2="32" stroke="#89CFF0" stroke-width="0.4" opacity="0.5"/>
+
+        <!-- Door handle -->
+        <rect x="118" y="46" width="16" height="3.5" rx="1.75" fill="#89CFF0" opacity="0.7"/>
+
+        <!-- Headlight assembly -->
+        <path d="M218 44 L230 46 L234 54 L230 60 L218 60 Z"
+              fill="#1a0a0a" stroke="#3a3a3a" stroke-width="0.8"/>
+        <ellipse cx="226" cy="52" rx="5" ry="6" fill="#89CFF0" opacity="0.75"/>
+        <ellipse cx="226" cy="52" rx="2.5" ry="3" fill="#e8303f" opacity="0.8"/>
+
+        <!-- Tail light -->
+        <rect x="16" y="46" width="9" height="16" rx="3"
+              fill="#89CFF0" opacity="0.75"/>
+        <rect x="18" y="48" width="5" height="12" rx="2"
+              fill="#b81020" opacity="0.6"/>
+
+        <!-- Spoiler -->
+        <rect x="18" y="38" width="22" height="4" rx="2"
+              fill="#89CFF0" opacity="0.7"/>
+        <rect x="17" y="37" width="2" height="8" rx="1" fill="#b81020"/>
+
+        <!-- Hood vents -->
+        <rect x="170" y="38" width="18" height="2" rx="1" fill="#89CFF0" opacity="0.3"/>
+        <rect x="170" y="42" width="14" height="2" rx="1" fill="#89CFF0" opacity="0.2"/>
+
+        <!-- Side vent -->
+        <path d="M90 58 L96 48 L104 48 L98 58 Z" fill="#89CFF0" opacity="0.2" stroke="#89CFF0" stroke-width="0.4"/>
+
+        <!-- REAR WHEEL -->
+        <circle cx="72" cy="77" r="18" fill="url(#wheelGrad)" stroke="#2a2a2a" stroke-width="1.5"/>
+        <circle cx="72" cy="77" r="12" fill="#141414" stroke="#222222" stroke-width="0.8"/>
+        <circle cx="72" cy="77" r="5"  fill="#89CFF0" opacity="0.7"/>
+        <!-- Spokes -->
+        <g stroke="#383838" stroke-width="1.2" opacity="0.9">
+          <line x1="72" y1="65" x2="72" y2="89"/>
+          <line x1="60" y1="77" x2="84" y2="77"/>
+          <line x1="64" y1="69" x2="80" y2="85"/>
+          <line x1="80" y1="69" x2="64" y2="85"/>
+          <line x1="61" y1="72" x2="83" y2="82"/>
+          <line x1="61" y1="82" x2="83" y2="72"/>
+        </g>
+        <circle cx="72" cy="77" r="2.5" fill="#fff" opacity="0.15"/>
+        <!-- Tyre texture -->
+        <circle cx="72" cy="77" r="17" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-dasharray="3,4"/>
+
+        <!-- FRONT WHEEL -->
+        <circle cx="190" cy="77" r="18" fill="url(#wheelGrad)" stroke="#2a2a2a" stroke-width="1.5"/>
+        <circle cx="190" cy="77" r="12" fill="#141414" stroke="#222222" stroke-width="0.8"/>
+        <circle cx="190" cy="77" r="5"  fill="#89CFF0" opacity="0.7"/>
+        <!-- Spokes -->
+        <g stroke="#383838" stroke-width="1.2" opacity="0.9">
+          <line x1="190" y1="65" x2="190" y2="89"/>
+          <line x1="178" y1="77" x2="202" y2="77"/>
+          <line x1="182" y1="69" x2="198" y2="85"/>
+          <line x1="198" y1="69" x2="182" y2="85"/>
+          <line x1="179" y1="72" x2="201" y2="82"/>
+          <line x1="179" y1="82" x2="201" y2="72"/>
+        </g>
+        <circle cx="190" cy="77" r="2.5" fill="#fff" opacity="0.15"/>
+        <circle cx="190" cy="77" r="17" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-dasharray="3,4"/>
+
+        <!-- Rim center accent -->
+        <circle cx="72" cy="77" r="1.5" fill="#89CFF0" opacity="0.7"/>
+        <circle cx="190" cy="77" r="1.5" fill="#89CFF0" opacity="0.7"/>
+
+        <!-- Brand badge on door -->
+        <text x="130" y="60" font-family="'Chakra Petch',sans-serif" font-size="4" fill="#89CFF0" opacity="0.6" text-anchor="middle" font-weight="700">PJ</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ░░ MAIN CONTENT ░░ -->
+  <main id="main">
+
+    <!-- ═══════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════ -->
+    <section class="section s-hero" id="hero" data-sign="START">
+      <div class="hero-inner">
+
+        <!-- Left col -->
+        <div class="hero-left">
+          <div class="hero-eyebrow" id="heroEyebrow">
+            <span class="eyebrow-dot"></span>
+            <span class="eyebrow-text">Visual &amp; Communication Designer</span>
+          </div>
+
+          <h1 class="hero-name" id="heroName">
+            <span class="hn-first">Gedala</span>
+            <em class="hn-last">Pavan.</em>
+          </h1>
+
+          <p class="hero-role" id="heroRole">
+            Software Developer · Web Designer · UI/UX · AI Enthusiast
+          </p>
+
+          <div class="hero-desc" id="heroDesc">
+            <p>
+              Based in <span class="red">India</span> — building user-focused
+              applications that solve real-world problems.
+              Open&nbsp;to&nbsp;work&nbsp;🟢
+            </p>
+          </div>
+
+          <div class="hero-actions" id="heroActions">
+            <a href="#work" class="btn-red" id="hero-work-btn">
+              View Work
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="mailto:gedalapavan26@gmail.com" class="btn-ghost-sm" id="hero-email-btn">Say Hello</a>
+          </div>
+
+          <div class="hero-companies" id="heroCompanies">
+            <span class="companies-label">Interning at</span>
+            <div class="companies-list">
+              <div class="company-pill" id="cp-daily">CG Infotech</div>
+              <div class="company-pill" id="cp-wish">NSRIT</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right col — marquee / big type -->
+        <div class="hero-right" aria-hidden="true">
+          <div class="big-type-wrap">
+            <div class="big-type bt-1">BUILD</div>
+            <div class="big-type bt-2"><em>Design</em></div>
+            <div class="big-type bt-3">SHIP</div>
+            <div class="big-type bt-4"><em>Solve</em></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="scroll-cue" id="scrollCue" aria-label="Scroll down">
+        <div class="scroll-wheel"></div>
+        <span>Scroll</span>
+      </div>
+
+      <!-- Floating chips -->
+      <div class="hero-chip chip-1" aria-hidden="true">
+        <span>✦ Open to Work</span>
+      </div>
+      <div class="hero-chip chip-2" aria-hidden="true">
+        <span>React · Figma · AI</span>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         MARQUEE TICKER
+    ═══════════════════════════════════ -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker-inner" id="tickerInner">
+        <div class="ticker-track">
+          <span>React.js</span><span class="sep">◆</span>
+          <span>TypeScript</span><span class="sep">◆</span>
+          <span>UI / UX</span><span class="sep">◆</span>
+          <span>Figma</span><span class="sep">◆</span>
+          <span>HTML &amp; CSS</span><span class="sep">◆</span>
+          <span>Java</span><span class="sep">◆</span>
+          <span>Python</span><span class="sep">◆</span>
+          <span>Supabase</span><span class="sep">◆</span>
+          <span>Prompt Engineering</span><span class="sep">◆</span>
+          <span>React.js</span><span class="sep">◆</span>
+          <span>TypeScript</span><span class="sep">◆</span>
+          <span>UI / UX</span><span class="sep">◆</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════
+         PROJECTS SECTION
+    ═══════════════════════════════════ -->
+    <section class="section s-work" id="work" data-sign="MY WORKS">
+      <div class="container">
+        <div class="section-header">
+          <div class="sh-left">
+            <div class="section-num">01</div>
+            <h2 class="section-title">My Works</h2>
+          </div>
+          <p class="section-sub">Things I've built that solve real problems.</p>
+        </div>
+
+        <div class="work-grid">
+
+          <!-- DIVIDO — flagship full-width -->
+          <article class="work-card wc-full reveal" id="proj-1">
+            <div class="wc-img wci-1">
+              <div class="wc-img-overlay">
+                <span class="wci-year">2025</span>
+                <a href="https://github.com/gedalapavan26-alt" target="_blank" rel="noopener" class="wci-link" id="proj1-link">View on GitHub ↗</a>
+              </div>
+              <div class="wc-img-content">
+                <div class="proj-visual pv-1">
+                  <div class="pv-circle c1"></div>
+                  <div class="pv-circle c2"></div>
+                  <div class="pv-type">DIVIDO</div>
+                </div>
+              </div>
+            </div>
+            <div class="wc-info">
+              <div class="wc-meta">
+                <span class="wc-cat">React</span>
+                <span class="wc-cat">TypeScript</span>
+                <span class="wc-cat">Vite</span>
+                <span class="wc-cat">Supabase</span>
+              </div>
+              <h3 class="wc-title">Divido — Smart Expense Sharing App</h3>
+              <p class="wc-desc">
+                Full-stack expense management application that simplifies group bill splitting,
+                tracks shared expenses, and automates settlements with real-time transparency.
+              </p>
+              <ul class="proj-bullets">
+                <li>Group bill splitting with real-time sync via Supabase</li>
+                <li>Automated settlement calculation across multiple participants</li>
+                <li>Clean, responsive UI built in React + TypeScript</li>
+              </ul>
+              <div class="wc-arrow">
+                <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#89CFF0"/><path d="M14 20h12M22 15l5 5-5 5" stroke="#89CFF0" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- NEXT PROJECT — Under Construction -->
+          <article class="work-card wc-full reveal" id="proj-2" style="--reveal-delay:0.1s">
+            <div class="wc-img wci-2">
+              <div class="wc-img-overlay">
+                <span class="wci-year">2026</span>
+                <span class="wci-link">Building...</span>
+              </div>
+              <div class="wc-img-content">
+                <div class="proj-visual pv-2">
+                  <div class="pv-box b1" style="border-style: dashed;"></div>
+                  <div class="pv-box b2" style="border-style: dashed;"></div>
+                  <div class="pv-type sm">WIP</div>
+                </div>
+              </div>
+            </div>
+            <div class="wc-info">
+              <div class="wc-meta">
+                <span class="wc-cat" style="color: var(--text-gray); border-color: var(--border);">Under Construction</span>
+              </div>
+              <h3 class="wc-title" style="color: var(--text-gray);">Next Project</h3>
+              <p class="wc-desc">
+                Currently architecting something new behind the scenes. This space is reserved for my upcoming full-stack build.
+              </p>
+              <ul class="proj-bullets">
+                <li style="color: var(--text-gray);">Planning &amp; System Design phase</li>
+                <li style="color: var(--text-gray);">Tech stack selection ongoing</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         EXPERIENCE SECTION
+    ═══════════════════════════════════ -->
+    <section class="section s-experience" id="experience" data-sign="EXP">
+      <div class="container">
+        <div class="section-header">
+          <div class="sh-left">
+            <div class="section-num">02</div>
+            <h2 class="section-title">Experience</h2>
+          </div>
+          <p class="section-sub">Where I've applied my skills professionally.</p>
+        </div>
+
+        <div class="exp-list">
+          <div class="exp-card reveal" id="exp-1">
+            <div class="exp-left">
+              <div class="exp-logo-wrap">
+                <div class="exp-logo">CG</div>
+              </div>
+              <div class="exp-connector"></div>
+            </div>
+            <div class="exp-body">
+              <div class="exp-top">
+                <div>
+                  <h3 class="exp-role">Web Development &amp; Web Designer Intern</h3>
+                  <p class="exp-company">CG Infotech</p>
+                </div>
+                <span class="exp-date">05/2026 — Present</span>
+              </div>
+              <div class="exp-tags">
+                <span>HTML &amp; CSS</span>
+                <span>React.js</span>
+                <span>Figma</span>
+                <span>UI/UX</span>
+                <span>Responsive Design</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Designed and developed responsive websites for clients using modern web technologies.</li>
+                <li>Built user-friendly UI/UX layouts and optimized website performance.</li>
+                <li>Collaborated with teams to deliver functional and visually appealing web solutions.</li>
+                <li>Maintained and updated existing websites based on client requirements.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         CERTIFICATIONS SECTION
+    ═══════════════════════════════════ -->
+    <section class="section s-certs" id="certs" data-sign="CERTS">
+      <div class="container">
+        <div class="section-header">
+          <div class="sh-left">
+            <div class="section-num">03</div>
+            <h2 class="section-title">Certifications</h2>
+          </div>
+          <p class="section-sub">Credentials earned through learning &amp; workshops.</p>
+        </div>
+
+        <div class="certs-grid">
+
+          <div class="cert-card reveal" id="cert-1">
+            <div class="cert-icon-wrap"><span class="cert-icon">🤖</span></div>
+            <div class="cert-body">
+              <div class="cert-issuer">
+                <span class="cert-org">NSRIT</span>
+                <span class="cert-date">Jan 27–28, 2025</span>
+              </div>
+              <h3 class="cert-title">Hands-on Workshop on AI &amp; Machine Learning</h3>
+              <p class="cert-desc">2-day intensive workshop at N S Raju Institute of Engineering &amp; Technology, conducted with industry experts on real-world AI/ML applications.</p>
+              <div class="cert-tags">
+                <span>Artificial Intelligence</span><span>Machine Learning</span><span>Industry Collab</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal" id="cert-2" style="--reveal-delay:0.15s">
+            <div class="cert-icon-wrap"><span class="cert-icon">💡</span></div>
+            <div class="cert-body">
+              <div class="cert-issuer">
+                <span class="cert-org">IBM SkillsBuild</span>
+                <span class="cert-date">2025</span>
+              </div>
+              <h3 class="cert-title">AI Fundamentals — Foundations for Understanding AI</h3>
+              <p class="cert-desc">Course covering AI concepts, machine learning fundamentals, ethical AI practices, and real-world applications of artificial intelligence.</p>
+              <div class="cert-tags">
+                <span>AI Concepts</span><span>Machine Learning</span><span>Ethical AI</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal" id="cert-3" style="--reveal-delay:0.3s">
+            <div class="cert-icon-wrap"><span class="cert-icon">🚀</span></div>
+            <div class="cert-body">
+              <div class="cert-issuer">
+                <span class="cert-org">IBM SkillsBuild</span>
+                <span class="cert-date">2025</span>
+              </div>
+              <h3 class="cert-title">Lifelong Professional Skills</h3>
+              <p class="cert-desc">Professional development focused on communication, teamwork, problem-solving, leadership, and career readiness in modern workplaces.</p>
+              <div class="cert-tags">
+                <span>Communication</span><span>Leadership</span><span>Problem-Solving</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         ABOUT SECTION
+    ═══════════════════════════════════ -->
+    <section class="section s-about" id="about" data-sign="ABOUT">
+      <div class="container">
+        <div class="about-grid">
+          <!-- Big statement -->
+          <div class="about-statement reveal">
+            <div class="section-num">04</div>
+            <h2 class="about-heading">
+              Building at the<br/>
+              intersection of<br/>
+              <em>code &amp; design.</em>
+            </h2>
+            <div class="about-scroll-text">
+              <div class="ast-track" id="aboutScrollText">
+                React.js · TypeScript · UI/UX · Figma · Java · Python · Supabase · AI · HTML &amp; CSS ·&nbsp;
+                React.js · TypeScript · UI/UX · Figma · Java · Python · Supabase · AI · HTML &amp; CSS ·&nbsp;
+              </div>
+            </div>
+          </div>
+
+          <!-- Right — info blocks -->
+          <div class="about-info">
+
+            <div class="about-avatar-wrap reveal" style="--reveal-delay:0.15s">
+              <div class="about-avatar" id="aboutAvatar">
+                <div class="aa-initials">GP</div>
+                <div class="aa-ring"></div>
+                <div class="aa-status">
+                  <div class="status-dot"></div>
+                  <span>Available</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-bio reveal" style="--reveal-delay:0.2s">
+              <p>
+                I'm <strong>Gedala Pavan</strong>, a driven Software Developer and UI/UX Designer from India. 
+                I specialize in building end-to-end web applications that solve real-world problems, with a strong focus on clean code and intuitive design.
+              </p>
+              <p>
+                Currently, I am pursuing my B.Tech in Computer Science at <span class="accent-text">NSRIT</span> 
+                and working as a Web Development &amp; Design Intern at <span class="accent-text">CG Infotech</span>, where I build responsive client solutions. 
+              </p>
+              <p>
+                Beyond my coursework, I've built projects like <strong>Divido</strong>—a full-stack expense sharing app using React and Supabase—and actively upskill through <span class="accent-text">IBM SkillsBuild</span> and various AI/ML workshops. My ultimate goal is to architect scalable systems that deliver exceptional user experiences.
+              </p>
+            </div>
+
+            <div class="about-stats reveal" style="--reveal-delay:0.3s">
+              <div class="astat" id="astat-proj">
+                <div class="astat-num" data-target="3">0</div>
+                <div class="astat-label">Certificates</div>
+              </div>
+              <div class="astat-div"></div>
+              <div class="astat" id="astat-co">
+                <div class="astat-num" data-target="1">0</div>
+                <div class="astat-label">Company</div>
+              </div>
+            </div>
+
+            <div class="about-skills reveal" style="--reveal-delay:0.4s">
+              <div class="skill-row">
+                <span class="skill-name">React / Web Dev</span>
+                <div class="skill-bar"><div class="sb-fill" style="--pct:88%"></div></div>
+                <span class="skill-pct">88</span>
+              </div>
+              <div class="skill-row">
+                <span class="skill-name">UI / UX (Figma)</span>
+                <div class="skill-bar"><div class="sb-fill" style="--pct:85%"></div></div>
+                <span class="skill-pct">85</span>
+              </div>
+              <div class="skill-row">
+                <span class="skill-name">Java / Python</span>
+                <div class="skill-bar"><div class="sb-fill" style="--pct:75%"></div></div>
+                <span class="skill-pct">75</span>
+              </div>
+              <div class="skill-row">
+                <span class="skill-name">AI / Prompt Eng.</span>
+                <div class="skill-bar"><div class="sb-fill" style="--pct:80%"></div></div>
+                <span class="skill-pct">80</span>
+              </div>
+            </div>
+
+            <div class="about-tools reveal" style="--reveal-delay:0.5s">
+              <span class="at-label">Tech Stack</span>
+              <div class="at-list">
+                <span>React.js</span><span>TypeScript</span>
+                <span>HTML &amp; CSS</span><span>Vite</span>
+                <span>Supabase</span><span>Figma</span>
+                <span>Java</span><span>Python</span>
+                <span>C</span><span>OOP</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         CONTACT SECTION
+    ═══════════════════════════════════ -->
+    <section class="section s-contact" id="contact" data-sign="END">
+      <div class="container">
+        <div class="contact-wrap">
+
+          <div class="contact-left reveal">
+            <div class="section-num">05</div>
+            <h2 class="contact-heading">
+              Let's build<br/>
+              something<br/>
+              <em>great.</em>
+            </h2>
+            <p class="contact-sub">
+              Open for internships, full-time roles, freelance projects or hackathon collabs.
+              If you like the work — let's connect and create.
+            </p>
+            <div class="contact-links">
+              <a href="mailto:gedalapavan26@gmail.com" class="contact-link" id="email-main">
+                gedalapavan26@gmail.com
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="tel:+916305906310" class="contact-link" id="phone-main">
+                +91 6305906310
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="https://linkedin.com/in/gedala-pavan-a88355343" target="_blank" rel="noopener" class="contact-link" id="linkedin-main">
+                LinkedIn
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="https://github.com/gedalapavan26-alt" target="_blank" rel="noopener" class="contact-link" id="github-main">
+                GitHub
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-right reveal" style="--reveal-delay:0.2s">
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="cf-group" id="cfg-name">
+                <label class="cf-label" for="cfName">Name</label>
+                <input class="cf-input" type="text" id="cfName" name="name" placeholder="Your name" autocomplete="name" />
+              </div>
+              <div class="cf-group" id="cfg-email">
+                <label class="cf-label" for="cfEmail">Email</label>
+                <input class="cf-input" type="email" id="cfEmail" name="email" placeholder="your@email.com" autocomplete="email" />
+              </div>
+              <div class="cf-group" id="cfg-msg">
+                <label class="cf-label" for="cfMsg">Message</label>
+                <textarea class="cf-input cf-textarea" id="cfMsg" name="message" placeholder="Tell me about your project..."></textarea>
+              </div>
+              <button type="submit" class="btn-red-full" id="cf-submit-btn">
+                Send Message
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </button>
+              <p class="cf-success" id="cfSuccess">Message sent! I'll get back to you soon. 🎉</p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-inner">
+          <p class="footer-name">Gedala Pavan<span class="red">.</span></p>
+          <p class="footer-copy">© 2026 · Software Developer &amp; Designer · India</p>
+          <p class="footer-vibe">Built with intent, not templates.</p>
+        </div>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
