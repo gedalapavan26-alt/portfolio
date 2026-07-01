@@ -284,7 +284,7 @@ function initForm() {
 
   if (!form) return;
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name  = $('cfName').value.trim();
@@ -296,21 +296,44 @@ function initForm() {
       return;
     }
 
-    // Simulate send
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    setTimeout(() => {
-      btn.textContent = 'Sent!';
-      success.classList.add('show');
-      form.reset();
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "be1376ca-1348-4074-8487-255320c99021", 
+          name: name,
+          email: email,
+          message: msg,
+        }),
+      });
 
+      const result = await response.json();
+
+      if (response.status === 200) {
+        btn.textContent = 'Sent!';
+        success.classList.add('show');
+        form.reset();
+      } else {
+        console.error("Web3Forms error:", result);
+        btn.textContent = 'Error sending';
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      btn.textContent = 'Error sending';
+    } finally {
       setTimeout(() => {
         btn.innerHTML = 'Send Message <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
         btn.disabled = false;
         success.classList.remove('show');
       }, 4000);
-    }, 1200);
+    }
   });
 }
 
